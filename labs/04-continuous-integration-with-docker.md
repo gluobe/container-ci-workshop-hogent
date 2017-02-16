@@ -123,3 +123,18 @@ For demo purposes we will allow anonymous access, this is required for our webho
 * Click the `Commit Changes` button
 * Go to you image on Docker Hub, click `Details` and click the `Build Details` tab (a new build should have been triggered, it will be in either queued or building state)
 * As soon as the build is finished you can have a look in Jenkins where the job te redeploy the application will have been triggered
+
+## Conclusion
+
+Congratulations, You have successfully completed this lab! You learned how to use Docker, Jenkins and GitHub to setup an automated continuous delivery pipeline.
+
+
+## Cleanup
+
+Please clean up your environment by running the following commands:
+
+```
+docker stop $(docker ps -qa)
+docker rm -f $(docker ps -qa)
+docker rmi -f $(docker images -qa)
+```
