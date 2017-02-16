@@ -2,7 +2,7 @@
 
 > **Dificulty**: Moderate
 
-> **Time**: 34 minutes
+> **Time**: 45 minutes
 
 > **Tasks**
 - [Prerequisite](#Prerequisite)
