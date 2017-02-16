@@ -21,7 +21,7 @@ NOTE: if you want to do this workshop on your own simply launch an Ubuntu server
 
 * [00 - Prerequisites](labs/00-prerequisites.md)
 * [01 - Installing Docker](labs/01-installing-docker.md)
-* [02 - Docker Basics[(labs/02-docker-basics.md)
+* [02 - Docker Basics](labs/02-docker-basics.md)
 * [03 - Installing and using docker-compose](labs/03-installing-and-using-docker-compose.md)
 * [04 - Continuous Integration with Docker](labs/04-continuous-integration-with-docker.md)
 * [05 - Creating a Docker cluster](labs/05-creating-a-docker-cluster.md)
