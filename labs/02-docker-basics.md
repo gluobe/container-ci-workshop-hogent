@@ -196,7 +196,7 @@ Using the command line to update an image makes it harder to track all changes t
 A Dockerfile is a text file that contains all the commands, in order, needed to build a given image. A primary advantage of Dockerfile is version control and documentation. A Dockerfile details all the steps used to create a particular image. Dockerfiles adhere to a specific format and require a specific instruction syntax. Some common commands used in Dockerfile are `FROM`, `RUN`, `WORKDIR`, `EXPOSE`, and `CMD`. Docker maintains [a complete syntax guide to Dockerfiles](https://docs.docker.com/articles/dockerfile_best-practices/).
 
 
-In the following task, you will be building a new image from a Dockerfile. You'll start from \the `ubuntu:latest` image that you just pulled as a base image.
+In the following task, you will be building a new image from a Dockerfile. You'll start from the `php:apache` image that you just pulled as a base image.
 
 1. Create an empty directory on the local file system of your system.
 
@@ -348,7 +348,7 @@ If you haven't done so already, please create a free account with
 
 Once you  have an account, you can login. Login is required to push images to Hub. Login is not required to pull public images. You can create either public or private images on Hub.
 
-1. From the command line, login into Hub with your credentials.
+ 1. From the command line, login into Hub with your credentials.
 
 ```
 docker login
@@ -365,13 +365,13 @@ To push an image to Docker Hub, you must tag it. The format to tag images that a
 
 `<Docker Hub Username>/<Image Name>:<Tag or Version>`
 
-2. Tag your image
+ 2. Tag your image
 
 ```
 docker tag myimage:v1 <YOUR_DOCKER_HUB_USERNAME>/myimage:v1
 ```
 
-3. List your new image.
+ 3. List your new image.
 
 ```
 docker images
@@ -384,13 +384,13 @@ hello-world         latest              0a6ba66e537a        2 weeks ago         
 
 NOTE: Tagging an image doesn't duplicate it, it simply adds additional metadata and points at same image. You can confirm that by looking at the Image ID. Notice that the Image ID is the same for 2 out of the 3 images listed.
 
-4. Push your image to Docker Hub.
+ 4. Push your image to Docker Hub.
 
 ```
 docker push <YOUR_DOCKER_HUB_USERNAME>/myimage:v1
 ```
 
-5. Go to [hub.docker.com](https://hub.docker.com) after a successful push to see your new image.
+ 5. Go to [hub.docker.com](https://hub.docker.com) after a successful push to see your new image.
 
 ou can simply now pull that image from any other Docker Engine using: `docker pull <YOUR_DOCKER_HUB_USERNAME>/myimage:v1`
 
