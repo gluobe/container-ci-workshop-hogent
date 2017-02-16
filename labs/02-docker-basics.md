@@ -143,46 +143,46 @@ Issue the following commands and observe the output:
 
 1. Search Docker Hub for all images that include the word "ubuntu" in them.
 
-```
-docker search ubuntu
-```
+  ```
+  docker search ubuntu
+  ```
 
-When you execute this command you search Docker Hub for all images that contain the word 'ubuntu' in them. You can search Docker Hub from the web if you go to [www.hub.docker.com](https://hub.docker.com/explore/).
+  When you execute this command you search Docker Hub for all images that contain the word 'ubuntu' in them. You can search Docker Hub from the web if you go to [www.hub.docker.com](https://hub.docker.com/explore/).
 
-You'll notice that the search results include an `OFFICIAL` column. Official images are certified by Docker to indicate that they are built using certain standards. You'll find a list of official images here : https://github.com/docker-library/official-images/tree/master/library.
+  You'll notice that the search results include an `OFFICIAL` column. Official images are certified by Docker to indicate that they are built using certain standards. You'll find a list of official images here : https://github.com/docker-library/official-images/tree/master/library.
 
 2. Pull the `ubuntu` image.
 
-```
-docker pull ubuntu:latest
-```
+  ```
+  docker pull ubuntu:latest
+  ```
 
-The output should be something like:
-```
-latest: Pulling from library/ubuntu
+  The output should be something like:
+  ```
+  latest: Pulling from library/ubuntu
+  
+  c63fb41c2213: Pull complete
+  99fcaefe76ef: Pull complete
+  5a4526e952f0: Pull complete
+  1d073211c498: Pull complete
+  Digest: sha256:8b1bffa54d8a58395bae61ec32f1a70fc82a939e4a7179e6227eb79e4c3c56f6
+  Status: Downloaded newer image for ubuntu:latest
+  ```
 
-c63fb41c2213: Pull complete
-99fcaefe76ef: Pull complete
-5a4526e952f0: Pull complete
-1d073211c498: Pull complete
-Digest: sha256:8b1bffa54d8a58395bae61ec32f1a70fc82a939e4a7179e6227eb79e4c3c56f6
-Status: Downloaded newer image for ubuntu:latest
-```
-
-You requested to pull the official ubuntu image. The word 'latest' is a tag used to identify the specific version of the image to pull. If the image name and tag are found in Hub, each layer of the image is downloaded and cached locally.
+  You requested to pull the official ubuntu image. The word 'latest' is a tag used to identify the specific version of the image to pull. If the image name and tag are found in Hub, each layer of the image is downloaded and cached locally.
 
 3. Verify which images you have downloaded
 
-```
-docker images
-```
-
-The output should be something like:
-```
-REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
-ubuntu              latest              1d073211c498        10 days ago          187.9 MB
-hello-world         latest              0a6ba66e537a        2 weeks ago          960 B
-```
+  ```
+  docker images
+  ```
+  
+  The output should be something like:
+  ```
+  REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
+  ubuntu              latest              1d073211c498        10 days ago          187.9 MB
+  hello-world         latest              0a6ba66e537a        2 weeks ago          960 B
+  ```
 
 ## Task 3: Building Images from Dockerfile
 
@@ -200,69 +200,81 @@ In the following task, you will be building a new image from a Dockerfile. You'l
 
 1. Create an empty directory on the local file system of your system.
 
-```
-mkdir task3
-```
+  ```
+  mkdir task3
+  ```
 
-When you build a and image, it uses the directory as **build context**. So, best to start with an empty one.
+  When you build a and image, it uses the directory as **build context**. So, best to start with an empty one.
 
 2. Change into your empty directory.
 
-```
-cd task3
-```
+  ```
+  cd task3
+  ```
 
-2. Create a new file named `Dockerfile` in this directory.
+3. Create a new file named `Dockerfile` in this directory.
 
-```
-touch Dockerfile
-```
+  ```
+  touch Dockerfile
+  ```
 
-3. Edit the `Dockerfile` using your favorite text editor.
+4. Edit the `Dockerfile` using your favorite text editor.
 
-The `vim`, `vi`, and `nano` editors are all available on Ubuntu.
+  The `vim`, `vi`, and `nano` editors are all available on Ubuntu.
 
-4. Add the following to the file:
+5. Add the following to the file:
 
-```
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y tree
-RUN mkdir /mydir
-ENV HOSTNAME mycontainer
-WORKDIR  /mydir
-CMD ["/bin/bash"]
-```
+  ```
+  FROM php:apache
+  MAINTAINER <YOUR@EMAILADDRESS.COM>
+  COPY index.php /var/www/html/
+  ```
 
   * `FROM ubuntu:latest` This image is based on ubuntu:latest
-  * `RUN apt-get update && apt-get install -y tree`   Updates the package lists and installs **tree**
-  * `RUN mkdir /mydir` Creates a directory called `mydir` under root directory
-  * `ENV HOSTNAME mycontainer` -> creates an environment variable called `HOSTNAME` with a value set to 'mycontainer'
-  * `WORKDIR  /mydir` Sets the `/mydir` directory as the working directory for the image.
-  * `CMD ["/bin/bash"]` Starts `/bin/bash` when a container is created from this image.
+  * `MAINTAINER <YOUR@EMAILADDRESS.COM>` This is merely for infomation (to see who maintains this image) 
+  * `COPY index.php /var/www/html/` this will copy the `index.php` file from the current directory of your host into the image 
 
 5. Save and close the file.
 
+6. Create a new file named `index.php` in this directory.
+
+   ```
+   touch index.php
+   ```
+
+7. Add the following to the file:
+
+  Change this into something different, if you know PHP knock yourselves out ;-)
+
+   ```
+   <?php
+     echo "Roses are red \n";
+     echo "Violets are blue \n";
+     echo "You did rm -fr / \n";
+     echo "No more sudo for you \n";
+   ?>
+
 6. Build your image using the **Dockerfile**.
 
-```
-docker build -t myimage:v1 .
-```
+  ```
+  docker build -t myimage:v1 .
+  ```
 
-Docker goes through the Dockerfile instructions one line at a time. Each line in creates an **intermediate** image by creating a container from the previous line, running the current command, and committing that container into a new image. The process is repeated until the last command is successfully committed into an image. The last image is the final product of the build process and, in this case is tagged as 'myimage:v1'.
+  Docker goes through the Dockerfile instructions one line at a time. Each line in creates an **intermediate** image by creating a container from the previous line, running the current command, and committing that container into a new image. The process is repeated until the last command is successfully committed into an image. The last image is the final product of the build process and, in this case is tagged as 'myimage:v1'.
 
 7.  List your new image.
 
-```
-docker images
-```
+  ```
+  docker images
+  ```
 
-The output should be something like:
-```
-REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
-myimage             v1                  3dc725993d1a        About a minute ago   289.8 MB
-ubuntu              latest              1d073211c498        10 days ago          187.9 MB
-hello-world         latest              0a6ba66e537a        2 weeks ago          960 B
-```
+  The output should be something like:
+  ```
+  REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
+  myimage             v1                  3dc725993d1a        About a minute ago   289.8 MB
+  ubuntu              latest              1d073211c498        10 days ago          187.9 MB
+  hello-world         latest              0a6ba66e537a        2 weeks ago          960 B
+  ```
 
 ## Task 4: Running Containers
 
@@ -270,46 +282,16 @@ In this task, you create and run a new container from the image built in the pre
 
 1. Create a container by running the image.
 
-```
-docker run -it --name mycontainer myimage:v1
-root@mycontainer:/mydir#
-```
+  ```
+  docker run -d -p 8080:80 --name mycontainer myimage:v1
+  root@mycontainer:/mydir#
+  ```
 
-The '-it' flags connects you to the STDIN of the container's main process ( in this case, it was `/bin/bash`) using a pseudo tty connection that Docker creates. Notice that you're currently connected to the container with a hostname of 'mycontainer' and the current working directory is set to '/mydir'. 
+  The '-d' flag starts your container in detached mode (it will run in the background), the '--name mycontainer' flag set a name for your container (otherwise a random name will be chosen), the '-p 8080:80' flag exposes port 80 from inside the container to port 8080 on your host
 
-3. Verify that 'tree' is installed.
+2. Verify that your container is working:
 
-```
-root@mycontainer:/mydir# which tree
-/usr/bin/tree
-```
-
-4. List the content of the root directory.
-
-```
-root@mycontainer:/mydir# ls -la / | grep mydir
-drwxr-xr-x   2 root root 4096 Nov  2 04:55 mydir
-```
-
-The container runs as long as PID 1 (in this case it is `/bin/bash`) is running. The moment you issue a `CTRL+C` to exit the container, the container is stopped.
-
-5. Keep the container running and exit by pressing `CTRL + P + Q` at your keyboard.
-
-The container is still running.
-
-6. Verify the container is still running.
-
-```
-docker ps
-```
-
-This shows the `CONTAINER ID`, `IMAGE`, creation time (`CREATED`), `STATUS`, any mapped `PORTS`, and container `NAMES` of running containers *only*. Unless you specify a name for the container when you create it with the '--name' flag, Docker assigns a random name to it.
-
-7. Display all containers running and stopped.
-
-```
-docker ps -a
-```
+  In your browser, surft to `http://nodeXY.docker.gluo.io:8080`
 
 
 ## Task 5: Maintaining Containers
@@ -318,23 +300,23 @@ Docker provides events, stats, and logging APIs to help you maintain and trouble
 
 1. See the stats for the container.
 
-```
-docker stats mycontainer
-```
+  ```
+  docker stats mycontainer
+  ```
 
 2. Press CTRL-C to exit the stats.
 
 3. View the logs for the container.
 
-```
-docker logs mycontainer
-```
+  ```
+  docker logs mycontainer
+  ```
 
 5. View the events.
 
-```
-docker events --since 1h
-```
+  ```
+  docker events --since 1h
+  ```
 
 6. Press CTRL-C to exit the logs.
 
@@ -394,6 +376,16 @@ Once you  have an account, you can login. Login is required to push images to Hu
 
   You can simply now pull that image from any other Docker Engine using: `docker pull <YOUR_DOCKER_HUB_USERNAME>/myimage:v1`
 
+6. Share your full docker image name through `#general` on Slack and try to run some of the containers of your colleagues:
+
+  ```
+  docker run -d -p 8081:80 --name mycontainer  <OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
+  docker run -d -p 8082:80 --name mycontainer  <OTHER_OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
+  docker run -d -p 8083:80 --name mycontainer  <OTHER_OTHER_OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
+  ...
+  ```
+
+
 ## Conclusion
 
 Congratulations, You have successfully completed this lab! You learned how to work with Docker, build images, and use Docker Hub to share them!
@@ -401,11 +393,14 @@ Congratulations, You have successfully completed this lab! You learned how to wo
 
 ## Cleanup
 
-If you plan to do another lab, you need to cleanup your EC2 instances. Cleanup removes any environment variables, configuration changes, Docker images, and running containers. To do a clean up,
+Please clean up your environment by running the following commands:
 
-1. Log into each EC2 instance you used and run the following:
+```
+docker stop $(docker ps -qa)
+docker rm -f $(docker ps -qa)
+docker rmi -f $(docker images -qa)
+```
 
-      $ source /home/ubuntu/cleanup.sh
 
 ## Related information
 
