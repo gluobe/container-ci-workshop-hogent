@@ -43,6 +43,7 @@ You should get output similar to the output below:
     docker swarm join \
     --token SWMTKN-1-5tuqlwyknrjhzsmngih5zbvgedcvzmkvtlh6blnzvsrugjgy7k-enu5pw4t5t6fz5vr6atjtrl0i \
     172.31.16.245:2377
+```
 
 Paste this command into the `#general` Slack channel (state if this is for the ODD or EVEN cluster)
 
