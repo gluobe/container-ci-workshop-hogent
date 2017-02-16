@@ -253,6 +253,7 @@ In the following task, you will be building a new image from a Dockerfile. You'l
      echo "You did rm -fr / \n";
      echo "No more sudo for you \n";
    ?>
+   ```
 
 6. Build your image using the **Dockerfile**.
 
