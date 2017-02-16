@@ -21,7 +21,7 @@ Before proceeding with this lab, please familiarize yourself first with the topi
 
 **NOTE: we will have 2 different clusters, an "odd" one and an "even one**
 
-## Initializing a Docker Swarm cluster
+## Task 1: Initializing a Docker Swarm cluster
 
 The following command should only be run on `node01` and `node02`:
 
@@ -48,7 +48,7 @@ You should get output similar to the output below:
 Paste this command into the `#general` Slack channel (state if this is for the ODD or EVEN cluster)
 
 
-## Joining an existing Docker Swarm cluster
+## Task 2: Joining an existing Docker Swarm cluster
 
 All odd nodes (node03, node05,...) need to join the cluster initialized by node01.  All even nodes (node04, node06,...) need to join the cluster initialized by node02.
 
@@ -60,7 +60,7 @@ To have your node join the cluster simple run the command that is provided to yo
     172.31.16.245:2377
 ```
 
-## Verifying the cluster
+## Task 3: Verifying the cluster
 
 To ensure that the cluster is running as it should you can run the `docker info` and `docker node ls` commands.
 
@@ -83,7 +83,7 @@ ID                           HOSTNAME         STATUS  AVAILABILITY  MANAGER STAT
 5izxh6aatcwgxn4kmy7wtgbbu    ip-172-31-3-241  Ready   Active
 ezh08kvrya4rtfywc3ph0fyzi *  ip-172-31-5-47   Ready   Active        Leader
 ```
-## Start the Docker Swarm visualizer
+## Task 4: Start the Docker Swarm visualizer
 
 Start the Docker Swarm visualizer (on all nodes), keep in mind that the Docker Swarm node only works if your node is a manager node (so for now `node01` and `node02`):
 
@@ -95,7 +95,7 @@ You can visit the Docker Swarm visualizer on:
 - http://node01.docker.gluo.io:9000
 - http://node02.docker.gluo.io:9000
 
-## Start a service on the Docker Swarm cluster
+## Task 5: Start a service on the Docker Swarm cluster
 
 This should also only be done on `node01` and `node02`.
 
@@ -107,7 +107,7 @@ docker service create --publish 80:80 --replicas 1 --name container-info trescst
 
 You can now surf to any node on the cluster and you will be able to see the container-info "website".  When you check the visualizer you will see that a container was started on one of the nodes of the cluster.
 
-## Scaling a service
+## Task 6: Scaling a service
 
 Now that we got everything up-and-running, the fun begins!  You can easily scale a service using the `docker service scale` command.  After you have scaled your service make sure to check the visualizer.
 
