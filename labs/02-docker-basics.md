@@ -1,4 +1,3 @@
-
 # Lab 01 : Introduction to Docker
 
 > **Difficulty**: Easy
@@ -285,7 +284,6 @@ In this task, you create and run a new container from the image built in the pre
 
   ```
   docker run -d -p 8080:80 --name mycontainer myimage:v1
-  root@mycontainer:/mydir#
   ```
 
   The '-d' flag starts your container in detached mode (it will run in the background), the '--name mycontainer' flag set a name for your container (otherwise a random name will be chosen), the '-p 8080:80' flag exposes port 80 from inside the container to port 8080 on your host
