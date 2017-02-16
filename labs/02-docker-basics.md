@@ -348,16 +348,16 @@ If you haven't done so already, please create a free account with
 
 Once you  have an account, you can login. Login is required to push images to Hub. Login is not required to pull public images. You can create either public or private images on Hub.
 
- 1. From the command line, login into Hub with your credentials.
+1. From the command line, login into Hub with your credentials.
 
-```
-docker login
-Username: <username>
-Password: <password>
-Email: <email@com>
-WARNING: login credentials saved in /home/ubuntu/.docker/config.json
-Login Succeeded
-```
+  ```
+  docker login
+  Username: <username>
+  Password: <password>
+  Email: <email@com>
+  WARNING: login credentials saved in /home/ubuntu/.docker/config.json
+  Login Succeeded
+  ```
 
 If login is successful, you should see a note confirming that.
 
@@ -365,34 +365,34 @@ To push an image to Docker Hub, you must tag it. The format to tag images that a
 
 `<Docker Hub Username>/<Image Name>:<Tag or Version>`
 
- 2. Tag your image
+2. Tag your image
 
-```
-docker tag myimage:v1 <YOUR_DOCKER_HUB_USERNAME>/myimage:v1
-```
+  ```
+  docker tag myimage:v1 <YOUR_DOCKER_HUB_USERNAME>/myimage:v1
+  ```
 
- 3. List your new image.
+3. List your new image.
 
-```
-docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-myimage             v1                  3dc725993d1a        39 minutes ago      289.8 MB
-moxiegirl/myimage   v1                  3dc725993d1a        39 minutes ago      289.8 MB
-ubuntu              latest              1d073211c498        10 days ago         187.9 MB
-hello-world         latest              0a6ba66e537a        2 weeks ago         960 B
-```
+  ```
+  docker images
+  REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+  myimage             v1                  3dc725993d1a        39 minutes ago      289.8 MB
+  moxiegirl/myimage   v1                  3dc725993d1a        39 minutes ago      289.8 MB
+  ubuntu              latest              1d073211c498        10 days ago         187.9 MB
+  hello-world         latest              0a6ba66e537a        2 weeks ago         960 B
+  ```
 
 NOTE: Tagging an image doesn't duplicate it, it simply adds additional metadata and points at same image. You can confirm that by looking at the Image ID. Notice that the Image ID is the same for 2 out of the 3 images listed.
 
- 4. Push your image to Docker Hub.
+4. Push your image to Docker Hub.
 
-```
-docker push <YOUR_DOCKER_HUB_USERNAME>/myimage:v1
-```
+  ```
+  docker push <YOUR_DOCKER_HUB_USERNAME>/myimage:v1
+  ```
 
- 5. Go to [hub.docker.com](https://hub.docker.com) after a successful push to see your new image.
+5. Go to [hub.docker.com](https://hub.docker.com) after a successful push to see your new image.
 
-ou can simply now pull that image from any other Docker Engine using: `docker pull <YOUR_DOCKER_HUB_USERNAME>/myimage:v1`
+You can simply now pull that image from any other Docker Engine using: `docker pull <YOUR_DOCKER_HUB_USERNAME>/myimage:v1`
 
 ## Conclusion
 
