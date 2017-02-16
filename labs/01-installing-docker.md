@@ -1,8 +1,8 @@
 # Lab 01 - Installing Docker
 
-> **Dificulty:** Easy
+> **Dificulty**: Easy
 
-> **Time:** 10 minutes
+> **Time**: 5 minutes
 
 > **Tasks**
 > - [Task 1: Installation](#task-1-installation)
