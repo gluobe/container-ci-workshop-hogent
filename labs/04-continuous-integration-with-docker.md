@@ -102,6 +102,7 @@ For demo purposes we will allow anonymous access, this is required for our webho
 * Click the `Manage Jenkins` link
 * Click the `Configure Global Security`
 * Under `Access Control` and `Authorization` select the `Anyone can do anything` option
+* Uncheck the "Prevent Cross Site Request Forgery exploits" checkbox
 * Click the `Apply` button and then the `Save` button
 
 ## Task 8: Create Docker Hub webhook 
