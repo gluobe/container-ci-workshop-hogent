@@ -15,8 +15,6 @@ As we will be using Linux systems from the public cloud ([AWS](https://aws.amazo
 * Windows: please download and install Putty from [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 * Mac/Linux: an SSH terminal is preinstalled on your system
 
-NOTE: if you want to do this workshop on your own simply launch an Ubuntu server in the cloud or in a VM
-
 ## Labs
 
 * [00 - Prerequisites](labs/00-prerequisites.md)
