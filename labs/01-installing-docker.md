@@ -47,4 +47,6 @@ Server:
  Experimental: false
 ```
 
+If Docker is running properly, you should see both `Client` and `Server` version details. In this step, you issued a CLI command which communicated over the local Unix socket on which the daemon is listening. This socket is `/var/run/docker.sock` by default and is owned by `root`.
+
 NOTE: ensure that you have Docker Version 1.12 or higher running, otherwise you might run into issues in later labs.
