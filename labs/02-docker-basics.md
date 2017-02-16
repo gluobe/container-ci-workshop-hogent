@@ -359,11 +359,11 @@ Once you  have an account, you can login. Login is required to push images to Hu
   Login Succeeded
   ```
 
-If login is successful, you should see a note confirming that.
+  If login is successful, you should see a note confirming that.
 
-To push an image to Docker Hub, you must tag it. The format to tag images that are distributed via Docker Hub is:
+  To push an image to Docker Hub, you must tag it. The format to tag images that are distributed via Docker Hub is:
 
-`<Docker Hub Username>/<Image Name>:<Tag or Version>`
+  `<Docker Hub Username>/<Image Name>:<Tag or Version>`
 
 2. Tag your image
 
@@ -382,7 +382,7 @@ To push an image to Docker Hub, you must tag it. The format to tag images that a
   hello-world         latest              0a6ba66e537a        2 weeks ago         960 B
   ```
 
-NOTE: Tagging an image doesn't duplicate it, it simply adds additional metadata and points at same image. You can confirm that by looking at the Image ID. Notice that the Image ID is the same for 2 out of the 3 images listed.
+  NOTE: Tagging an image doesn't duplicate it, it simply adds additional metadata and points at same image. You can confirm that by looking at the Image ID. Notice that the Image ID is the same for 2 out of the 3 images listed.
 
 4. Push your image to Docker Hub.
 
@@ -392,7 +392,7 @@ NOTE: Tagging an image doesn't duplicate it, it simply adds additional metadata 
 
 5. Go to [hub.docker.com](https://hub.docker.com) after a successful push to see your new image.
 
-You can simply now pull that image from any other Docker Engine using: `docker pull <YOUR_DOCKER_HUB_USERNAME>/myimage:v1`
+  You can simply now pull that image from any other Docker Engine using: `docker pull <YOUR_DOCKER_HUB_USERNAME>/myimage:v1`
 
 ## Conclusion
 
