@@ -10,7 +10,7 @@
 
 ## Task 1: Installation
 
-In this first lab we will be installing Docker on our system.  The easiest way however is to install the latest version of Docker is by running a script which is provided by Docker, [https://get.docker.com/](https://get.docker.com/).
+In this first lab we will be installing Docker on our system.  The easiest way to install the latest version of Docker is by running a script which is provided by Docker, [https://get.docker.com/](https://get.docker.com/).
 
 NOTE: the installation might take a couple of minutes to complete
 
