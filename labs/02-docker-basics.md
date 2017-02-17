@@ -1,4 +1,4 @@
-# Lab 01 : Introduction to Docker
+# Lab 02 : Introduction to Docker
 
 > **Difficulty**: Easy
 
@@ -229,7 +229,7 @@ In the following task, you will be building a new image from a Dockerfile. You'l
   COPY index.php /var/www/html/
   ```
 
-  * `FROM ubuntu:latest` This image is based on ubuntu:latest
+  * `FROM php:apache` This image is based on ubuntu:latest
   * `MAINTAINER <YOUR@EMAILADDRESS.COM>` This is merely for infomation (to see who maintains this image) 
   * `COPY index.php /var/www/html/` this will copy the `index.php` file from the current directory of your host into the image 
 
