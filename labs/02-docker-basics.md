@@ -378,9 +378,9 @@ Once you  have an account, you can login. Login is required to push images to Hu
 6. Share your full docker image name through `#general` on Slack and try to run some of the containers of your colleagues:
 
   ```
-  docker run -d -p 8081:80 --name mycontainer  <OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
-  docker run -d -p 8082:80 --name mycontainer  <OTHER_OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
-  docker run -d -p 8083:80 --name mycontainer  <OTHER_OTHER_OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
+  docker run -d -p 8081:80 --name mycontainer1  <OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
+  docker run -d -p 8082:80 --name mycontainer2  <OTHER_OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
+  docker run -d -p 8083:80 --name mycontainer3  <OTHER_OTHER_OTHER_TEAM_DOCKER_HUB_USERNAME>/myimage:v1
   ...
   ```
 
